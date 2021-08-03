@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import  * as THREE from 'three'
+import {Canvas, useFrame, useLoader} from 'react-three-fiber'
+import circleImg from './assets/circle.png'
+import { Suspense, useCallback, useMemo, useRef } from 'react';
+import AnimationCanvas from './components/AnimationCanvas'
+import NavBar from './components/NavBar'
+import Hero from './components/Hero';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="anim">
+        <Suspense fallback={null}>
+          <AnimationCanvas/>
+        </Suspense>
+      </div>
+      <div>
+        <Hero/>
+      </div>
+      {/* <div clasName="navdiv">
+        <NavBar/>
+      </div>
+      <div>
+        <p className="header">test</p>
+      </div> */}
     </div>
   );
 }
